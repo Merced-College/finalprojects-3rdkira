@@ -1,34 +1,46 @@
 import java.util.*;
 
 public class Deck {
-    private List<Card> cards = new ArrayList<>();
+    private List<Card> cards;
+    private int currentCardIndex;
 
     public Deck() {
-        buildDeck();
+        cards = new ArrayList<>();
+        initializeDeck();
         shuffle();
     }
 
-    public void buildDeck() {
-        cards.clear();
+    private void initializeDeck() {
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
-        String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10",
-                          "Jack", "Queen", "King", "Ace"};
+        String[] ranks = {
+            "2", "3", "4", "5", "6", "7", "8", "9", "10",
+            "Jack", "Queen", "King", "Ace"
+        };
+
         for (String suit : suits) {
             for (String rank : ranks) {
-                cards.add(new Card(suit, rank));
+                cards.add(new Card(rank, suit));
             }
         }
+        currentCardIndex = 0;
     }
 
     public void shuffle() {
-        Collections.shuffle(cards, new Random(System.currentTimeMillis()));
+        Collections.shuffle(cards);
+        currentCardIndex = 0;
     }
 
     public Card dealCard() {
-        if (cards.isEmpty()) {
-            buildDeck();
+        if (currentCardIndex < cards.size()) {
+            return cards.get(currentCardIndex++);
+        } else {
+            System.out.println("Deck is out of cards. Reshuffling...");
             shuffle();
+            return dealCard();
         }
-        return cards.remove(cards.size() - 1);
+    }
+
+    public boolean isEmpty() {
+        return currentCardIndex >= cards.size();
     }
 }
