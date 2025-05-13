@@ -48,8 +48,8 @@ public class BlackjackGame {
 
     private void prepareRound() {
         for (Player p : players) {
-            if (!isActivePlayer(p.getName())) continue;
-            p.incTotalGames();
+            if (!isActivePlayer(p.getName())) continue; //Checks for active players
+            p.incTotalGames(); 
             p.resetHand();
             bets.put(p.getName(), 0);
             playerTotalsMap.put(p.getName(), 0);

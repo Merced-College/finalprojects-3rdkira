@@ -1,3 +1,10 @@
+// **
+// * Jacob Butler
+// * Professor Kathleen Kanemoto
+// * May 13th, 2025
+// * CPSC-39-10106
+// **
+
 import java.util.*;
 
 public class Main {
