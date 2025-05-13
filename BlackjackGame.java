@@ -48,18 +48,18 @@ public class BlackjackGame {
                     dealer.addCard(deck.dealCard());
                 }
 
-                showHands(true);
+                showHands(true); //
 
                 if (dealer.isBusted()) {
                     System.out.println("Dealer busted! You win!");
                 } else {
-                    determineWinner();
+                    determineWinner(); //call method
                 }
             }
 
             System.out.print("Play again? (y/n): ");
             if (!scanner.nextLine().trim().toLowerCase().equals("y")) {
-                break;
+                break; //Accept letter regardless of capitalization
             }
         }
 
