@@ -2,7 +2,7 @@
 // * Jacob Butler
 // * Professor Kathleen Kanemoto
 // * May 13th, 2025
-// * CPSC-39-10106
+// * CPSC-39-10106  
 // Blackjack with Multiple Rounds, Betting System, Handling Aces, Player Statistics, Multiplayer Option
 // **
 
